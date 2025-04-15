@@ -9,7 +9,7 @@ def crear_portal(
     url: str = typer.Option(..., "--url", "-u", help="URL del portal")
 ):
     """Crea un nuevo archivo de portal con una función base y actualiza el __init__.py."""
-
+    
     portal_path = Path(f"app/portals/{nombre}.py")
     if portal_path.exists():
         typer.echo(f"⚠️ El portal '{nombre}' ya existe.")
@@ -17,7 +17,9 @@ def crear_portal(
 
     contenido = f'''from playwright.async_api import Page
 
-async def consultar_{nombre}(page: Page, cedula: str) -> str:
+NOMBRE_PORTAL = "{nombre}"
+
+async def consultar(page: Page, cedula: str) -> str:
     await page.goto("{url}")
     # TODO: Implementar scraping real
     return "Resultado de {nombre} para " + cedula
@@ -30,25 +32,15 @@ async def consultar_{nombre}(page: Page, cedula: str) -> str:
 
 def actualizar_init(nombre: str):
     init_path = Path("app/portals/__init__.py")
-
+    
     if not init_path.exists():
-        init_path.write_text("PORTALES_DISPONIBLES = {}\n")
+        init_path.write_text("from pathlib import Path\nimport importlib\nimport pkgutil\n\nPORTALES_DISPONIBLES = {}\n")
 
     contenido = init_path.read_text(encoding="utf-8").strip().splitlines()
-
     import_line = f"from . import {nombre}"
+    
     if import_line not in contenido:
         contenido.insert(0, import_line)
-
-    dict_inicio = next((i for i, line in enumerate(contenido) if line.startswith("PORTALES_DISPONIBLES")), None)
-    if dict_inicio is not None:
-        imports = [line.split()[-1] for line in contenido if line.startswith("from . import ")]
-        dict_lines = ["PORTALES_DISPONIBLES = {"]
-        for imp in imports:
-            dict_lines.append(f'    "{imp}": {imp}.consultar_{imp},')
-        dict_lines.append("}")
-        contenido = [line for line in contenido if not line.startswith("PORTALES_DISPONIBLES")]
-        contenido.extend(dict_lines)
 
     init_path.write_text("\n".join(contenido) + "\n", encoding="utf-8")
 
