@@ -1,5 +1,6 @@
 from playwright.async_api import Page
 
+NOMBRE_PORTAL = "funpub"
 async def consultar_funpub(page: Page, cedula: str) -> str:
     await page.goto("https://www.funcionpublica.gov.co/fdci/consultaCiudadana/index")
     await page.fill("#numeroDocumento", cedula)

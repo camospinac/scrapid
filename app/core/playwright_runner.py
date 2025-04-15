@@ -1,10 +1,5 @@
 from playwright.async_api import async_playwright
-from app.portals import rues, funpub
-
-PORTALES_DISPONIBLES = {
-    "rues": rues.consultar_rues,
-    "funpub": funpub.consultar_funpub,
-}
+from app.portals import PORTALES_DISPONIBLES
 
 async def consultar_cedulas(request):
     resultados = {}

@@ -1,6 +1,8 @@
 from playwright.async_api import Page
 
-async def consultar_rues(page: Page, cedula: str) -> str:
+NOMBRE_PORTAL = "rues"
+
+async def consultar(page: Page, cedula: str) -> str:
     await page.goto("https://www.rues.org.co/RM/Consultas")
     await page.fill("#search", cedula)
     await page.keyboard.press("Enter")
