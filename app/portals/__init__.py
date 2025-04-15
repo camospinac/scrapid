@@ -1,0 +1,1 @@
+# Este archivo permite que la carpeta 'portals' se trate como un paquete de Python.
