@@ -84,6 +84,29 @@ Respuesta esperada:
 ```
 ---
 
+## 💻 Command Line Interface CLI
+
+Scrapid posee un Command Line Interfacae CLI para automatizar ciertas tareas, visualizar portales y hacer pruebas a portales.
+
+✅ Comandos disponibles ahora:
+
+- Crear plantilla para agregar un nuevo portal a la automatización
+
+```bash 
+python cli.py crear-portal --nombre funexample --url https://example.com
+```
+- Visualizar portales en el proyecto 
+
+```bash 
+python cli.py listar-portales
+```
+- Realizar prueba rápidamente a un portal específico
+
+```bash
+python cli.py probar-portal --portal rues --cedula 12345678
+```
+---
+
 ## 🤝 Contribuciones
 
 ¡Las contribuciones son bienvenidas! Puedes:
