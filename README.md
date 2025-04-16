@@ -56,8 +56,6 @@ La API estará disponible en:
 
 ---
 
----
-
 ## 🧪 Ejemplo de consulta (cURL)
 
 ```bash
@@ -86,8 +84,6 @@ Respuesta esperada:
 ```
 ---
 
----
-
 ## 🤝 Contribuciones
 
 ¡Las contribuciones son bienvenidas! Puedes:
@@ -98,14 +94,10 @@ Respuesta esperada:
 
 ---
 
----
-
 ## 📄 Licencia
 
 Este proyecto está licenciado bajo la Licencia [MIT](https://opensource.org/license/mit).
 Puedes usarlo, modificarlo y distribuirlo libremente siempre que mantengas el aviso de copyright.
-
----
 
 ---
 
