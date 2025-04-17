@@ -1,4 +1,4 @@
-# 📌 scrapid
+# 🕷️ scrapid
 
 **scrapid** es una API modular y colaborativa para consultar información pública a través de portales oficiales en Colombia, a partir del número de cédula.  
 Está pensada como una plataforma de scraping distribuido, abierta a la comunidad para crecer y mantenerse con múltiples fuentes.
@@ -30,7 +30,7 @@ Está pensada como una plataforma de scraping distribuido, abierta a la comunida
 
 ```bash
 # Clonar el repositorio
-git clone https://github.com/tu_usuario/scrapid.git
+git clone https://github.com/camospninac/scrapid.git
 cd scrapid
 
 # Crear entorno virtual
